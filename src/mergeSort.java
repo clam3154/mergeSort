@@ -1,22 +1,25 @@
 public class mergeSort
 {
-    public void mergeSort(int[] arr)
-    {
+    public static void mergeSort(int[] arr) {
         int n = arr.length;
         int[] temp = new int[n];
-        mergeSortHelper(arr,0,n-1,temp);
+        mergeSortHelper(arr, 0, n - 1, temp);
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i] + ",");
+        }
     }
-    public void mergeSortHelper(int[] arr, int left, int right, int[] temp)
+    public static void mergeSortHelper(int[] arr, int left, int right, int[] temp)
     {
         if(left<right)
         {
             int mid = (left+right)/2;
             mergeSortHelper(arr,left,mid,temp);
-            mergeSortHelper(arr,left,mid+1,temp);
+            mergeSortHelper(arr,mid+1,right,temp);
             merge(arr,left,mid,right,temp);
         }
     }
-    public void merge(int[] arr, int left, int mid, int right, int[] temp)
+    public static void merge(int[] arr, int left, int mid, int right, int[] temp)
     {
         int i = left;
         int j = mid+1;
